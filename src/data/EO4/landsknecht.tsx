@@ -1,30 +1,6 @@
-export const skills: any = [
-   //   NoviceSwordsman: {
-   //     name_jp: "剣士の心得",
-   //     name_en: "Proficiency",
-   //     description:
-   //       "Whenever you attack an enemy you increase your party's damage and accuracy against that target for the rest of the round.",
-   //     requires: null,
-   //     dep: {},
-   //     active: FALSE,
-   //     max: 1,
-   //     unique: true,
-   //     coords: { x: -140, y: 20 },
-   //   },
+import { characterSkills } from '../types'
 
-   //   VeteranSwordsman: {
-   //     name_jp: "剣士の極意",
-   //     name_en: "Expertise",
-   //     description:
-   //       "Whenever you attack an enemy you further increase your party's damage and accuracy against that target for the rest of the round.",
-   //     requires: null,
-   //     dep: { NoviceSwordsman: 1 },
-   //     active: FALSE,
-   //     max: 1,
-   //     unique: true,
-   //     coords: { x: -140, y: 240 },
-   //   },
-
+export const landsknecht: characterSkills[] = [
    //   MasterSwordsman: {
    //     name_jp: "剣士の悟り",
    //     name_en: "Enlightenment",
@@ -62,7 +38,10 @@ export const skills: any = [
    //     coords: { x: -100, y: 340 },
    //   },
    {
-      name: 'Novice',
+      name_jp: '剣士の心得',
+      name_en: 'Proficiency (Novice)',
+      description:
+         "Whenever you attack an enemy you increase your party's damage and accuracy against that target for the rest of the round.",
       skills: [
          {
             name_jp: 'ソニックレイド',
@@ -72,31 +51,38 @@ export const skills: any = [
             required_body_part: 'Arms',
             required_weapon: 'Sword or Rapier',
             levels: 10,
-            scaling_type: 'percentage',
-            scaling_dmg: [
-               '130',
-               '135',
-               '140',
-               '145',
-               '160',
-               '163',
-               '166',
-               '169',
-               '172',
-               '180',
-            ],
-            scaling_cost: [
-               '4',
-               '4',
-               '4',
-               '4',
-               '4',
-               '5',
-               '5',
-               '5',
-               '5',
-               '5',
-               '6',
+            scaling: [
+               {
+                  name: 'damage',
+                  detail: [
+                     '130',
+                     '135',
+                     '140',
+                     '145',
+                     '160',
+                     '163',
+                     '166',
+                     '169',
+                     '172',
+                     '180',
+                  ],
+               },
+               {
+                  name: 'cost',
+                  detail: [
+                     '4',
+                     '4',
+                     '4',
+                     '4',
+                     '4',
+                     '5',
+                     '5',
+                     '5',
+                     '5',
+                     '5',
+                     '6',
+                  ],
+               },
             ],
             tags: null,
          },
@@ -317,7 +303,7 @@ export const skills: any = [
             tags: [
                {
                   name: 'Power Break',
-                  level: '3',
+                  level: 3,
                },
             ],
             levels: 6,
@@ -337,6 +323,14 @@ export const skills: any = [
             ],
          },
       ],
+   },
+
+   {
+      name_jp: '剣士の極意',
+      name_en: 'Expertise (Veteran)',
+      description:
+         "Whenever you attack an enemy you further increase your party's damage and accuracy against that target for the rest of the round.",
+      skills: [],
    },
 
    //   PhysicalAttackBoost: {
