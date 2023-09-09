@@ -16,6 +16,7 @@ const App = () => (
                <Route
                   path={`/${_class}`}
                   element={<Character skills={landsknecht} />}
+                  key={_class}
                />
             ))}
          </Routes>

@@ -20,7 +20,7 @@ function Main() {
    return (
       <>
          {classes.map((_class) => (
-            <div className="box" onClick={() => null}>
+            <div className="box" onClick={() => null} key={_class}>
                <h2>
                   <Link to={`/${_class.toLocaleLowerCase()}`}>{_class}</Link>
                </h2>

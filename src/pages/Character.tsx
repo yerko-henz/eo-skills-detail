@@ -13,8 +13,8 @@ const Character: React.FC<{ skills: characterSkills[] }> = ({ skills }) => {
 
    return (
       <>
-         {skills.map((skillCat) => (
-            <>
+         {skills.map((skillCategory, index) => (
+            <React.Fragment key={index}>
                <div
                   className="box"
                   onClick={() => {
@@ -22,12 +22,12 @@ const Character: React.FC<{ skills: characterSkills[] }> = ({ skills }) => {
                      setOpenSkill('')
                   }}
                >
-                  <p>{skillCat.name_en}</p>
+                  <p>{skillCategory.name_en}</p>
                </div>
                {openSection && (
                   <>
-                     {skillCat.skills.map((skill) => (
-                        <>
+                     {skillCategory.skills.map((skill) => (
+                        <React.Fragment key={skill.name_en}>
                            <div
                               className="box"
                               onClick={() => setOpenSkill(skill.name_en)}
@@ -39,11 +39,11 @@ const Character: React.FC<{ skills: characterSkills[] }> = ({ skills }) => {
                                  <p>{skill.description}</p>
                               </div>
                            )}
-                        </>
+                        </React.Fragment>
                      ))}
                   </>
                )}
-            </>
+            </React.Fragment>
          ))}
       </>
    )
